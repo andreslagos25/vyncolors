@@ -14,3 +14,12 @@ Content-Type: application/json
     "PASSWORD_CLIENTE": "contraseña1234",
     "ID_TIPODOC": 1
 }
+
+### Actualizar un cliente
+
+PATCH http://localhost:1234/clientes/0a94f81c-8017-11ee-8418-0a002700000a
+Content-Type: application/json
+
+{
+    "SNOMBRE_CLIENTE": "Fernanda"
+}

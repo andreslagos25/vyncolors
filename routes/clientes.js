@@ -5,3 +5,4 @@ export const clientesRouter = Router()
 
 clientesRouter.get('/', ClientesController.getClientes)
 clientesRouter.post('/', ClientesController.crearCliente)
+clientesRouter.patch('/:id', ClientesController.updateCliente)
