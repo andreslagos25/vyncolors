@@ -1,0 +1,16 @@
+### Obtener los clientes de la BD
+GET http://localhost:1234/clientes
+
+### Crear cliente
+POST http://localhost:1234/clientes
+Content-Type: application/json
+
+{
+    "DOCUMENTO_CLIENTE": "5736423424",
+    "PNOMBRE_CLIENTE": "Juan",
+    "PAPELLIDO_CLIENTE": "Gomez",
+    "TELEFONO_CLIENTE": "1523123",
+    "CORREO_CLIENTE": "juango@gmail.com",
+    "PASSWORD_CLIENTE": "contraseña1234",
+    "ID_TIPODOC": 1
+}
