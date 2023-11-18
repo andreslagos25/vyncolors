@@ -1,4 +1,4 @@
-### Obtener los clientes de la BD
+### Obtener los clientes 
 GET http://localhost:1234/clientes
 
 ### Crear cliente
@@ -16,7 +16,6 @@ Content-Type: application/json
 }
 
 ### Actualizar un cliente
-
 PATCH http://localhost:1234/clientes/0a94f81c-8017-11ee-8418-0a002700000a
 Content-Type: application/json
 
