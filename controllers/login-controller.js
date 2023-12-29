@@ -1,18 +1,23 @@
-import { validateDataLogin } from '../schemas/login.js'
-import { ClientesModel } from '../models/mysql/login.js'
+import { validateDataLogin } from '../schemas/login.js';
+import { ClientesLoginModel } from '../models/mysql/login.js'
 
 
 export class LoginController{
+    static async mostrarLogin(req, res){
+        res.render('./partials/login')
+    }
     static async authLogin(req, res){
-        const result = validateDataLogin(req.body)
-        console.log(result);
-        if(!result.success){
-            return res
-        }
-        const resultadoC = await ClientesModel.login({ input: result.data })
-        if(resultadoC == 1){
-            res.render('index');
+        const input = validateDataLogin(req.body);
+        const loggeo = await ClientesLoginModel.login({ input: input.data });
+        if(loggeo == 0){
+            try {
+                throw new Error('Hubo un problema al iniciar sesion');
+            } catch (error) {
+                res.render('./partials/login', { error: error.message })
+            }
         }else{
+            res.render('./index')
+            console.log("Loggeado")
         }
     }
 }

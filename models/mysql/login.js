@@ -10,13 +10,27 @@ const config = {
 
 const connection = await mysql.createConnection(config)
 
-export class ClientesModel{
+export class ClientesLoginModel{
     static async login({ input }){
-        const { CORREO_CLIENTE, PASSWORD_CLIENTE } = input
-        const loginData = await connection.query(`
-            SELECT 1 FROM CLIENTES WHERE CORREO_CLIENTE = ? AND PASSWORD_CLIENTE = SHA(?);
-        `, [CORREO_CLIENTE, PASSWORD_CLIENTE])
-        return loginData;
+        const {
+            CORREO_CLIENTE,
+            PASSWORD_CLIENTE
+        } = input
+        try {
+            const loginData = await connection.query(`
+                SELECT 1 FROM CLIENTES WHERE CORREO_CLIENTE = ? AND PASSWORD_CLIENTE = SHA(?);
+            `, [CORREO_CLIENTE, PASSWORD_CLIENTE]);
+            if(loginData[0].length > 0 && loginData[0][0][1] === 1){
+                console.log('Usuario autenticado');
+                return true;
+            }else{
+                console.log('Usuario no autenticado');
+                return false;
+            }
+            
+        } catch (error) {
+            throw new Error(error);
+        }
     }
 
     

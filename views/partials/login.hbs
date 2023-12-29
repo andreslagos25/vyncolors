@@ -3,7 +3,7 @@
         <form action="/login" class="form-cadastro" data-form method="POST">
           <input
             class="login_input__url"
-            type="text"
+            type="email"
             name="CORREO_CLIENTE"
             placeholder="Escriba su correo electrónico"
             required
@@ -21,5 +21,11 @@
         </form>
         <a href="#" class="login_registro">¿Aun no tienes una cuentra? Registrate!!</a>
     </section>
+
+    {{#if error}}
+      <script>
+        alert('Correo o contraseña incorrectos');
+      </script>
+    {{/if}}
 
     
