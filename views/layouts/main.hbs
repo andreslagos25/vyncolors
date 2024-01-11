@@ -24,10 +24,14 @@
 
         <div class="list">
             <ul class="list_menu">
-                <li class="list_menu_item"><a href="#" class="list_menu_itemlink">Inicio</a></li>
+                <li class="list_menu_item"><a href="/" class="list_menu_itemlink">Inicio</a></li>
                 <li class="list_menu_item"><a class="list_menu_itemlink">Servicios</a></li>
                 <li class="list_menu_item"><a class="list_menu_itemlink">Productos</a></li>
-                <li class="list_menu_item"><a href="/login" class="list_menu_itemlink">Login</a></li>
+                {{#if session.isLoggedIn}}
+                  <li class="list_menu_item"><a href="/" class="list_menu_itemlink">Perfil</a></li>
+                {{else}}
+                  <li class="list_menu_item"><a href="/login" class="list_menu_itemlink">Login</a></li>
+                {{/if}}
             </ul>
         </div>
     </nav>
@@ -96,7 +100,6 @@
     setInterval(nextImage, interval);
   });
 </script>
-
   </body>
 </html>
 

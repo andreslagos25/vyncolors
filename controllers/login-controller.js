@@ -1,6 +1,6 @@
 import { validateDataLogin } from '../schemas/login.js';
 import { ClientesLoginModel } from '../models/mysql/login.js'
-
+import jwt from 'jsonwebtoken'
 
 export class LoginController{
     static async mostrarLogin(req, res){
@@ -10,14 +10,15 @@ export class LoginController{
         const input = validateDataLogin(req.body);
         const loggeo = await ClientesLoginModel.login({ input: input.data });
         if(loggeo == 0){
-            try {
-                throw new Error('Hubo un problema al iniciar sesion');
-            } catch (error) {
-                res.render('./partials/login', { error: error.message })
-            }
+            res.render('./partials/login', { error: 'Credenciales incorrectas' })
         }else{
-            res.render('./index')
-            console.log("Loggeado")
+            
+            const token = jwt.sign({"username": input.data.CORREO_CLIENTE}
+            , 'secret_key', { expiresIn: '1h'})
+            res.cookie('token', token, { httpOnly: true, maxAge: 3600000 });
+            req.session.isLoggedIn = true;
+            req.session.username = input.data.CORREO_CLIENTE;
+            res.redirect('/')
         }
     }
 }

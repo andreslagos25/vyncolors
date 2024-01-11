@@ -4,13 +4,22 @@ import { join, dirname } from 'path'
 import { clientesRouter } from './routes/clientes.js'
 import { fileURLToPath } from 'url'
 import { loginRouter } from './routes/login.js'
-
+import session from 'express-session'
+import crypto from 'crypto';
 
 
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(json())
 app.disable('x-powered-by')
+
+const secret = crypto.randomBytes(32).toString('hex');
+
+app.use(session({
+    secret: secret,
+    resave: false,
+    saveUninitialized: true
+}))
 
 app.set('views', join(__dirname, 'views'))
 
@@ -27,7 +36,7 @@ app.use('/clientes', clientesRouter)
 app.use('/login', loginRouter)
 
 app.get('/', (req, res) =>{
-    res.render('index')
+    res.render('index', { session: req.session })
 })
 
 
