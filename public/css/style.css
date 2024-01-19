@@ -10,6 +10,7 @@ header
 	animation: gradient 15s ease infinite;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
 @-webkit-keyframes gradient 
@@ -325,5 +326,66 @@ input, textarea {
   font-weight: bolder;
   font-family: 'Courier New', Courier, monospace;
   border-radius: 40px;
+}
+
+
+/*  PRODUCTOS   */
+.carousel-item img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  z-index: 500;
+}
+.productos{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.productos_titulo{
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 4%;
+  text-align: center;
+  font-size: 200%;
+}
+.productos_lista{
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+}
+.carousel-item {
+  min-width: 100%;
+  text-align: center;
+}
+
+.productos_carrusel{
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+.carousel-text {
+  margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.slide{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 1px;
+}
+
+.next {
+  right: 1px;
 }
 
