@@ -49,8 +49,8 @@ nav
 
 .logo
 {
-  display: flex;
-  width: 60%;
+  
+  width: 30%;
   align-items: center;
   
 }
@@ -327,7 +327,10 @@ input, textarea {
   font-family: 'Courier New', Courier, monospace;
   border-radius: 40px;
 }
-
+/*  CARRITO */
+.carrito{
+  width: 30px;
+}
 
 /*  PRODUCTOS   */
 .carousel-item img{

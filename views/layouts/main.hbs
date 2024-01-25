@@ -19,7 +19,7 @@
                 <img src="/img/logo.png" alt="logo" />
                 <p class="logo-azul">V&N Colors</p>
             </div>
-            <input type="text" placeholder="Qué deseas buscar?" />
+            {{!-- <input type="text" placeholder="Qué deseas buscar?" /> --}}
         </div>
 
         <div class="list">
@@ -32,6 +32,9 @@
                 {{else}}
                   <li class="list_menu_item"><a href="/login" class="list_menu_itemlink">Login</a></li>
                 {{/if}}
+                <li class="list_menu_item"><a href="/carrito" class="list_menu_itemlink">
+                  <img src="/img/carrito.png" alt="" class="carrito">
+                </a></li>
             </ul>
         </div>
     </nav>

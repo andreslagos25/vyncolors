@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url'
 import { loginRouter } from './routes/login.js'
 import session from 'express-session'
 import crypto from 'crypto';
-
+import { carritoRouter } from './routes/carrito.js'
 
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -34,6 +34,7 @@ app.set('view engine', '.hbs')
 app.use(express.urlencoded({ extended: false }))
 app.use('/clientes', clientesRouter)
 app.use('/login', loginRouter)
+app.use('/carrito', carritoRouter)
 
 app.get('/', (req, res) =>{
     res.render('index', { session: req.session })
