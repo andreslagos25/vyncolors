@@ -21,10 +21,8 @@ export class ClientesLoginModel{
                 SELECT 1 FROM CLIENTES WHERE CORREO_CLIENTE = ? AND PASSWORD_CLIENTE = SHA(?);
             `, [CORREO_CLIENTE, PASSWORD_CLIENTE]);
             if(loginData[0].length > 0 && loginData[0][0][1] === 1){
-                console.log('Usuario autenticado');
                 return true;
             }else{
-                console.log('Usuario no autenticado');
                 return false;
             }
             
