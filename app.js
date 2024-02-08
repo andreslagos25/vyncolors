@@ -2,6 +2,7 @@ import express, { json } from 'express'
 import { engine } from 'express-handlebars'
 import { join, dirname } from 'path'
 import { clientesRouter } from './routes/clientes.js'
+import { homeRouter } from './routes/home.js';
 import { fileURLToPath } from 'url'
 import { loginRouter } from './routes/login.js'
 import session from 'express-session'
@@ -35,11 +36,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/clientes', clientesRouter)
 app.use('/login', loginRouter)
 app.use('/carrito', carritoRouter)
-
-app.get('/', (req, res) =>{
-    res.render('index', { session: req.session })
-})
-
+app.use('/', homeRouter)
+    
 
 
 //Public files

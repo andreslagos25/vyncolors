@@ -42,6 +42,17 @@
         <button class="prev slide" onclick="prevSlide()">&#10094;</button>
         <button class="next slide" onclick="nextSlide()">&#10095;</button>
       </div>
+      <div>
+        <h1>Lista de productos</h1>
+        <ul>
+          {{#each productos}}
+          <li>
+            <strong>{{NOMBRE_ARTICULO}}</strong>
+            <p>Precio: {{PRECIO_ARTICULO}}</p>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
     </section>
 <script>
   
