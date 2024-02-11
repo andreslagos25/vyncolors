@@ -23,36 +23,24 @@
     <section class="productos">
       <div class="productos_titulo">
         <h1>Productos</h1>
+        <h2>Lista de productos</h2>
       </div>
-      <div class="productos_lista">
-        <div class="productos_carrusel">
-          <div class="carousel-item">
-            <img src="/img/cosmetico.png" alt="Imagen 1" class="img_carrusel">
-            <div class="carousel-text">Precio: $5200</div>
-          </div>
-          <div class="carousel-item">
-            <img src="/img/cosmetico.png" alt="Imagen 2" class="img_carrusel">
-            <div class="carousel-text">Precio: $15200</div>
-          </div>
-          <div class="carousel-item">
-            <img src="/img/cosmetico.png" alt="Imagen 3" class="img_carrusel">
-            <div class="carousel-text">Precio: $25200</div>
-          </div>
-        </div>
-        <button class="prev slide" onclick="prevSlide()">&#10094;</button>
-        <button class="next slide" onclick="nextSlide()">&#10095;</button>
-      </div>
-      <div>
-        <h1>Lista de productos</h1>
-        <ul>
+      
+        <div class="cartas-container">
           {{#each productos}}
-          <li>
-            <strong>{{NOMBRE_ARTICULO}}</strong>
-            <p>Precio: {{PRECIO_ARTICULO}}</p>
-          </li>
+          <div class="carta">
+            <div class="cuerpo">
+              <img src="/img/cosmetico.png" alt="" class="img-carta">
+              <h2>{{NOMBRE_ARTICULO}}</h2>
+              <p>{{PRECIO_ARTICULO}}</p>
+              <p>{{DESCRIPCION_ARTICULO}}</p>
+            </div>
+            <div class="pie">
+              <a href="">Añadir al carrito</a>
+            </div>
+          </div>
           {{/each}}
-        </ul>
-      </div>
+        </div>
     </section>
 <script>
   

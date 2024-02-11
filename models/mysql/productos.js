@@ -13,7 +13,7 @@ const connection = await mysql.createConnection(config)
 export class Productos{
     static async productos(){
         const productos = await connection.query(`
-            SELECT NOMBRE_ARTICULO, PRECIO_ARTICULO FROM ARTICULOS LIMIT 3;
+            SELECT NOMBRE_ARTICULO, PRECIO_ARTICULO, DESCRIPCION_ARTICULO FROM ARTICULOS LIMIT 6;
         `);
         return productos[0];
     }
